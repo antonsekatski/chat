@@ -21,7 +21,7 @@ class App extends Component {
   };
 
   componentWillMount() {
-    this.props.actions.users.update({ 
+    this.props.actions.users.updateCurrent({ 
       id: Math.random().toString(36).slice(2, 10),
       nickname: `${coolUsernames[Math.floor(Math.random()*coolUsernames.length)]}-${Math.random().toString(36).slice(2, 10)}` })
     this.props.actions.socket.create()
@@ -30,8 +30,10 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div id="page">
+          {this.props.children}
+        </div>
         <Modals />
-        {this.props.children}
       </div>
     );
   }

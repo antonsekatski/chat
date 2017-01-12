@@ -19,7 +19,7 @@ class Sidebar extends Component {
   render() {
     const currentUser = this.props.store('current_user')
 
-    const users = this.props.store('rooms#main') || {}
+    const users = this.props.store('room') || {}
 
     const usersList = Object.keys(users).map(key => {
       const user = users[key]
@@ -30,7 +30,7 @@ class Sidebar extends Component {
       <div className={styles.root}>
         <div className={styles.group}>
           <div className={styles.user}>{currentUser.nickname}</div>
-          <button onClick={this.openForm}>change username</button>
+          <button onClick={this.openForm} className={styles.button}>change username</button>
         </div>
         <div className={styles.group}>
           <div className={styles.label}>Room</div>

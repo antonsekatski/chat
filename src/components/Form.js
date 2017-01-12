@@ -24,7 +24,7 @@ class Form extends Component {
     return (
       <form onSubmit={this.sendMessage} className={styles.root}>
         <input type="text" className={styles.text} value={this.state.value} onChange={(ev) => this.setState({ value: ev.target.value })} />
-        <button onClick={this.sendMessage} className={styles.button}>Send</button>
+        <button type="submit" onClick={this.sendMessage} className={styles.button}>Send</button>
       </form>
     );
   }

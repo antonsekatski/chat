@@ -8,10 +8,6 @@ import Form from '../components/Form'
 import styles from './Home.scss'
 
 class Home extends Component {
-  componentWillMount() {
-    this.props.actions.rooms.set('main')
-  }
-
   render() {
     return (
       <div className={styles.root}>
@@ -23,7 +19,9 @@ class Home extends Component {
             <div className={styles.form}>
               <Form />
             </div>
-            <Messages />
+            <div className={styles.scroll}>
+              <Messages />
+            </div>
           </div>
         </div>
       </div>

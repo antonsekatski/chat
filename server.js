@@ -14,6 +14,7 @@ const roster = {}
 const history = []
 
 io.on('connection', socket => {
+  // Convert roster from being SocketID -> User to UserID -> User map
   io.emit('state', { roster, history })
 
   socket.on('message', msg => {
@@ -24,16 +25,21 @@ io.on('connection', socket => {
 
   socket.on('presence', user => {
     roster[socket.id] = user
-    io.emit('presence', user)
+    io.emit('presence', { id: socket.id, user })
     console.log('user connected');
   })
 
   socket.on('disconnect', () => {
     const user = roster[socket.id]
     delete roster[socket.id]
-    io.emit('disconnect', user)
+    io.emit('disconnect', { id: socket.id, user })
     console.log('user disconnected');
-  });
+  })
+
+  socket.on('update_user', (user) => {
+    roster[socket.id] = user
+    socket.broadcast.emit('update_user', { id:socket.id, user })
+  })
 })
 
 /************************************************************
@@ -103,3 +109,4 @@ if (!process.env.PRODUCTION) {
 
 const port = process.env.PORT || 8080;
 server.listen(port)
+console.log('Start server on http://localhost:8080')

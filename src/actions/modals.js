@@ -1,5 +1,5 @@
-export function open(current) {
-  this.set('modal', current)
+export function open(component, props = {}) {
+  this.set('modal', { component, props })
 }
 
 export function close() {

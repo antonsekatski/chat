@@ -10,9 +10,11 @@ class Modals extends Component {
     if (!current) {
       if (typeof document !== 'undefined') {
         document.documentElement.style.overflow = ''
-        const element = document.getElementById('app')
-        element.style['-webkit-filter'] = ''
-        element.style.filter = ''
+        const element = document.getElementById('page')
+        if (element) {
+          element.style['-webkit-filter'] = ''
+          element.style.filter = ''
+        }
       }
 
       return (<div></div>);
@@ -21,13 +23,15 @@ class Modals extends Component {
     if (typeof document !== 'undefined') {
       document.documentElement.style.overflow = 'hidden'
       const element = document.getElementById('page')
-      element.style['-webkit-filter'] = 'blur(3px)'
-      element.style.filter = 'blur(3px)'
+      if (element) {
+        element.style['-webkit-filter'] = 'blur(3px)'
+        element.style.filter = 'blur(3px)'
+      }
     }
 
     return (
       <div>
-        <div className={ styles.overlay } onClick={this.props.actions.modal.close}></div>
+        <div className={ styles.overlay } onClick={this.props.actions.modals.close}></div>
         <div className={ styles.wrapper }>{React.createElement(current.component, current.props)}</div>
       </div>
     );
