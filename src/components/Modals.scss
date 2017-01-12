@@ -1,0 +1,32 @@
+.wrapper {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 10px 0;
+  
+  &:after {
+        vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+    margin-left: -.05em;
+    content: "";
+    
+  }
+}
+
+.overlay {
+  position: fixed;
+  z-index: 9999;
+  top: -5000px;
+  right: -5000px;
+  bottom: -5000px;
+  left: -5000px;
+  background: #2B2E38;
+  background: rgba(43,46,56,.65);
+}
