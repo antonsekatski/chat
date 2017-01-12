@@ -22,5 +22,5 @@ http://localhost:8080
 
 ![alt](http://68.media.tumblr.com/tumblr_m571uudsz71rv5j9yo1_500.gif)
 
-## In the case of emergency:
+## In case of emergency:
 ![alt](http://i.imgur.com/fSV89.gif)
