@@ -8,7 +8,7 @@ class UserForm extends Component {
     super(props)
 
     this.state = {
-      value: ''
+      value: this.props.store('current_user').nickname
     }
 
     this.update= this.update.bind(this)
